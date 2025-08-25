@@ -5,6 +5,8 @@ import Sidebar from "@/components/ui/Sidebar";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
+import Overview from "@/components/dashboard/Overview";
+import UsersTable from "@/components/dashboard/UsersTable";
 
 export default function Home() {
   const isSidebarOpen = useSelector((state: RootState) => state.ui.sidebarOpen);
@@ -24,12 +26,8 @@ export default function Home() {
         {isSidebarOpen && <Sidebar />} {/* 👈 Only show if open */}
 
         <main className="space-y-8">
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-semibold">Dashboard</h2>
-            <p className="mt-2 text-sm text-slate-500">
-              Welcome to the admin dashboard.
-            </p>
-          </div>
+          <Overview />
+          <UsersTable />
         </main>
       </div>
     </div>
